@@ -1,0 +1,9 @@
+spark-submit --class edu.ucr.cs.cs167.ashir025.App --master "local[2]" target/ashir025_lab5-1.0-SNAPSHOT.jar nasa_19950801.tsv 2>/dev/null 
+spark-submit --class edu.ucr.cs.cs167.ashir025.App target/ashir025_lab5-1.0-SNAPSHOT.jar nasa_19950801.tsv
+
+
+spark-submit --class edu.ucr.cs.cs167.ashir025.App target/ashir025_lab5-1.0-SNAPSHOT.jar nasa_19950801.tsv 2>/dev/null | grep "Number of lines in the log file"
+spark-submit --class edu.ucr.cs.cs167.ashir025.Filter target/ashir025_lab5-1.0-SNAPSHOT.jar hdfs:///user/amir/nasa_19950801.tsv hdfs:///user/amir/filter_output 200
+
+spark-submit --class edu.ucr.cs.cs167.ashir025.Filter target/ashir025_lab5-1.0-SNAPSHOT.jar hdfs:///user/amir/nasa_19950630.22-19950728.12.tsv file:///filter_output 302   
+spark-submit --class edu.ucr.cs.cs167.ashir025.Aggregation target/ashir025_lab5-1.0-SNAPSHOT.jar hdfs:///user/amir/nasa_19950630.22-19950728.12.tsv aggregation_output
