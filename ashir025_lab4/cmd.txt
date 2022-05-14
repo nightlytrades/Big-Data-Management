@@ -1,3 +1,6 @@
+commands:
+hdfs dfs -rm -r /user/amir/filter_output.tsv  
+
 hdfs dfs -put nasa_19950801.tsv   
 yarn jar target/ashir025_lab4-1.0-SNAPSHOT.jar edu.ucr.cs.cs167.ashir025.Filter hdfs:///user/amir/nasa_19950801.tsv hdfs:///user/amir/filter_output.tsv 200
 hdfs dfs -cat /user/amir/filter_output.tsv/part-m-00000 | wc -l
